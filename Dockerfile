@@ -3,6 +3,9 @@ FROM mrinal449/docker-hadoop:1.0
 # build time argument
 ARG HBASE_VERSION
 
+# update
+RUN apt-get update
+
 # install hbase
 RUN curl --fail https://www.redrockdigimark.com/apachemirror/hbase/stable/hbase-${HBASE_VERSION}-bin.tar.gz > /opt/hbase-${HBASE_VERSION}-bin.tar.gz && \
     tar -xzf /opt/hbase-${HBASE_VERSION}-bin.tar.gz -C /opt/ && \
