@@ -9,7 +9,7 @@ RUN apt-get update
 # install hbase
 RUN curl --fail https://www.redrockdigimark.com/apachemirror/hbase/stable/hbase-${HBASE_VERSION}-bin.tar.gz > /opt/hbase-${HBASE_VERSION}-bin.tar.gz && \
     tar -xzf /opt/hbase-${HBASE_VERSION}-bin.tar.gz -C /opt/ && \
-    rm /opt/hbase-${HBASE_VERSION}-bin.tar.gz
+    rm /opt/hbase-${HBASE_VERSION}-bin.tar.gz && \
     ln -s /opt/hbase-${HBASE_VERSION} /opt/hbase && \
     sed -i -e \$a"export JAVA_HOME=$(echo ${JAVA_HOME})/" /opt/hbase/conf/hbase-env.sh && \
     mkdir /opt/hbase/data /opt/hbase/zookeeper
